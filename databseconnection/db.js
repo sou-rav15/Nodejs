@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const DB_NAME="hotel"
-// const MONGODB_URI="mongodb+srv://sourav15:sourav15@cluster0.kwgsfjr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 require('dotenv').config ();
 
 const connectDB= async ()=>{
