@@ -6,9 +6,9 @@ router.post('/',async(req,res)=>{
 
 
     try {
-        const {name,age, work, email}=req.body;
+        const {name,age, work, email,username,password}=req.body;
         // that all the data should exist
-        if(!(name && age && work && email)){
+        if(!(name && age && work && email&& username&& password)){
             return res.status(400).send("please enter all the details");
 
         }
@@ -27,6 +27,8 @@ router.post('/',async(req,res)=>{
             age,
             work,
             email,
+            username,
+            password,
         })
         // generate a token for user and send it
         // const token =jwt.sign({id:user._id,email},process.env.SECRET_KEY)

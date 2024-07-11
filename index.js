@@ -3,8 +3,7 @@ const app =express();
 const connectDB=require('./databseconnection/db.js')
 require('dotenv').config ({path:'./env'});
 
-
-
+const passport= require('./authentication/auth.js')
 // const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
 
@@ -15,7 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}))
 const PORT= process.env.PORT||4000;
 
-app.get("/",(req,res)=>{
+
+app.use(passport.initialize());
+app.get("/",passport.authenticate('local',{session:false}),(req,res)=>{
     res.send("you are in home page")
 })
 
